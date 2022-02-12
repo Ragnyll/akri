@@ -7,7 +7,6 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-akri-debug-echo = { path = "../discovery-handlers/debug-echo" }
 akri-discovery-utils = { path = "../discovery-utils" }
 akri-onvif = { path = "../discovery-handlers/onvif", optional = true }
 akri-opcua = { path = "../discovery-handlers/opcua", optional = true }
@@ -44,12 +43,12 @@ tokio-stream = { version =  "0.1", features = ["net"] }
 tonic = "0.5.2"
 tower = "0.4.8"
 url = "2.1.0"
-uuid = { version = "0.8.1", features = ["v4"] }
 
 [build-dependencies]
 tonic-build = "0.5.2"
 
 [dev-dependencies]
+akri-debug-echo = { path = "../discovery-handlers/debug-echo" }
 # for testing using a simple discovery handler
 akri-discovery-utils = { path = "../discovery-utils", features = ["mock-discovery-handler"] }
 akri-onvif = { path = "../discovery-handlers/onvif" }
@@ -58,6 +57,7 @@ akri-udev = { path = "../discovery-handlers/udev"}
 mockall = "0.10.2"
 mock_instant = { version = "0.2", features = ["sync"] }
 tempfile = "3.1.0"
+uuid = { version = "0.8.1", features = ["v4"] }
 
 [features]
 # To embed discovery handlers, add the desired discovery handler features to default and "agent-full".
