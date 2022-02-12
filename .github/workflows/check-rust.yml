@@ -60,3 +60,14 @@ jobs:
       run: cargo test -- --ignored
     - name: Run doc
       run: export RUSTDOCFLAGS="-Dwarnings" && cargo doc --no-deps
+    - name: cargo unused deps
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: nightly
+        override: true
+      run: |
+        cargo install cargo-udeps --locked
+        echo "Check for dependencies not used in any lifecycle"
+        cargo +nightly udeps --all-targets | grep "All deps seem to have been used"
+        cargo "Check for dependencies not used in test"
+        cargo +nightly udeps | grep "All deps seem to have been used"
