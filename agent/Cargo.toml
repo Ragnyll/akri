@@ -7,6 +7,7 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+akri-debug-echo = { path = "../discovery-handlers/debug-echo" }
 akri-discovery-utils = { path = "../discovery-utils" }
 akri-onvif = { path = "../discovery-handlers/onvif", optional = true }
 akri-opcua = { path = "../discovery-handlers/opcua", optional = true }
@@ -48,7 +49,6 @@ url = "2.1.0"
 tonic-build = "0.5.2"
 
 [dev-dependencies]
-akri-debug-echo = { path = "../discovery-handlers/debug-echo" }
 # for testing using a simple discovery handler
 akri-discovery-utils = { path = "../discovery-utils", features = ["mock-discovery-handler"] }
 akri-onvif = { path = "../discovery-handlers/onvif" }
